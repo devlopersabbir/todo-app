@@ -17,6 +17,62 @@
         "documentation": {}
     },
     {
+        "label": "Column",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Integer",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "String",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "DateTime",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Column",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "String",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Boolean",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
         "label": "sessionmaker",
         "importPath": "sqlalchemy.orm",
         "description": "sqlalchemy.orm",
@@ -54,6 +110,40 @@
         "description": "src.configs.databse",
         "isExtraImport": true,
         "detail": "src.configs.databse",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "importPath": "src.configs.databse",
+        "description": "src.configs.databse",
+        "isExtraImport": true,
+        "detail": "src.configs.databse",
+        "documentation": {}
+    },
+    {
+        "label": "uuid",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "uuid",
+        "description": "uuid",
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "datetime",
+        "description": "datetime",
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModels",
+        "importPath": "src.models.baseModels",
+        "description": "src.models.baseModels",
+        "isExtraImport": true,
+        "detail": "src.models.baseModels",
         "documentation": {}
     },
     {
@@ -140,6 +230,24 @@
         "description": "src.configs.db_connect",
         "peekOfCode": "def db_connect():\n    try:\n        Base.metadata.create_all(bind=engine)\n        print(\"Successfully connect db!\")\n    except Exception as err:\n        print(\"Fail to connect!\")",
         "detail": "src.configs.db_connect",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModels",
+        "kind": 6,
+        "importPath": "src.models.baseModels",
+        "description": "src.models.baseModels",
+        "peekOfCode": "class BaseModels(Base):\n    __abstract__ = True\n    id = Column(Integer, primary_key=True, unique=True, index=True)\n    uuid = Column(String(36), unique=True, default=lambda: str(uuid.uuid4()))\n    create_at = Column(DateTime, default=datetime.datetime.now())\n    updated_at = Column(DateTime, default=datetime.datetime.now(),\n                        onupdate=datetime.datetime.now())",
+        "detail": "src.models.baseModels",
+        "documentation": {}
+    },
+    {
+        "label": "Todo",
+        "kind": 6,
+        "importPath": "src.models.todo",
+        "description": "src.models.todo",
+        "peekOfCode": "class Todo(BaseModels):\n    __tablename__ = \"Todos\"\n    name = Column(String(256), unique=True)\n    isDone = Column(Boolean(), default=False)",
+        "detail": "src.models.todo",
         "documentation": {}
     },
     {
