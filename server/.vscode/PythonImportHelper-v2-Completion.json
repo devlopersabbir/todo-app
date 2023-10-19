@@ -155,6 +155,14 @@
         "documentation": {}
     },
     {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
         "label": "load_dotenv",
         "importPath": "dotenv",
         "description": "dotenv",
@@ -256,6 +264,15 @@
         "description": "src.models.todo",
         "peekOfCode": "class Todo(BaseModels):\n    __tablename__ = \"Todos\"\n    name = Column(String(256), unique=True, nullable=False)\n    description = Column(String(Text))\n    isDone = Column(Boolean(), default=False)",
         "detail": "src.models.todo",
+        "documentation": {}
+    },
+    {
+        "label": "TodoSchema",
+        "kind": 6,
+        "importPath": "src.schemas.todoSchema",
+        "description": "src.schemas.todoSchema",
+        "peekOfCode": "class TodoSchema():\n    name: Optional(str) = None\n    description: Optional(str) = None\n    isDone: Optional(str) = None",
+        "detail": "src.schemas.todoSchema",
         "documentation": {}
     },
     {
