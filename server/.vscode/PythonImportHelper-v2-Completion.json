@@ -155,6 +155,22 @@
         "documentation": {}
     },
     {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "FastAPI",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
         "label": "Optional",
         "importPath": "typing",
         "description": "typing",
@@ -176,14 +192,6 @@
         "description": "dotenv",
         "isExtraImport": true,
         "detail": "dotenv",
-        "documentation": {}
-    },
-    {
-        "label": "FastAPI",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
         "documentation": {}
     },
     {
@@ -264,6 +272,15 @@
         "description": "src.models.todo",
         "peekOfCode": "class Todo(BaseModels):\n    __tablename__ = \"Todos\"\n    name = Column(String(256), unique=True, nullable=False)\n    description = Column(String(Text))\n    isDone = Column(Boolean(), default=False)",
         "detail": "src.models.todo",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "src.routes.todoRoutes",
+        "description": "src.routes.todoRoutes",
+        "peekOfCode": "router = APIRouter()\n@router.get(\"/\")\nasync def get_todo():\n    return {\n        \"fuck\": \"us\"\n    }",
+        "detail": "src.routes.todoRoutes",
         "documentation": {}
     },
     {
