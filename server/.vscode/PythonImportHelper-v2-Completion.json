@@ -1,5 +1,14 @@
 [
     {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
         "label": "create_engine",
         "importPath": "sqlalchemy",
         "description": "sqlalchemy",
@@ -8,11 +17,138 @@
         "documentation": {}
     },
     {
+        "label": "sessionmaker",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "declarative_base",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "loadEnv",
+        "importPath": "src.utils.loadEnv",
+        "description": "src.utils.loadEnv",
+        "isExtraImport": true,
+        "detail": "src.utils.loadEnv",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "importPath": "src.configs.databse",
+        "description": "src.configs.databse",
+        "isExtraImport": true,
+        "detail": "src.configs.databse",
+        "documentation": {}
+    },
+    {
+        "label": "engine",
+        "importPath": "src.configs.databse",
+        "description": "src.configs.databse",
+        "isExtraImport": true,
+        "detail": "src.configs.databse",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "find_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
         "label": "FastAPI",
         "importPath": "fastapi",
         "description": "fastapi",
         "isExtraImport": true,
         "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "db_connect",
+        "importPath": "src.configs.db_connect",
+        "description": "src.configs.db_connect",
+        "isExtraImport": true,
+        "detail": "src.configs.db_connect",
+        "documentation": {}
+    },
+    {
+        "label": "get_db",
+        "kind": 2,
+        "importPath": "src.configs.databse",
+        "description": "src.configs.databse",
+        "peekOfCode": "def get_db():\n    db = SessionLocal()\n    try:\n        yield db\n    finally:\n        db.close()",
+        "detail": "src.configs.databse",
+        "documentation": {}
+    },
+    {
+        "label": "DATABSE_URL",
+        "kind": 5,
+        "importPath": "src.configs.databse",
+        "description": "src.configs.databse",
+        "peekOfCode": "DATABSE_URL = os.environ.get(\"DATABSE_URL\")\nif not DATABSE_URL:\n    print(\"Fail to get DATABASE URL!\")\nengine = create_engine(DATABSE_URL)\nSessionLocal = sessionmaker(bind=engine, autocommit=False, autoflush=False)\nBase = declarative_base()\ndef get_db():\n    db = SessionLocal()\n    try:\n        yield db",
+        "detail": "src.configs.databse",
+        "documentation": {}
+    },
+    {
+        "label": "engine",
+        "kind": 5,
+        "importPath": "src.configs.databse",
+        "description": "src.configs.databse",
+        "peekOfCode": "engine = create_engine(DATABSE_URL)\nSessionLocal = sessionmaker(bind=engine, autocommit=False, autoflush=False)\nBase = declarative_base()\ndef get_db():\n    db = SessionLocal()\n    try:\n        yield db\n    finally:\n        db.close()",
+        "detail": "src.configs.databse",
+        "documentation": {}
+    },
+    {
+        "label": "SessionLocal",
+        "kind": 5,
+        "importPath": "src.configs.databse",
+        "description": "src.configs.databse",
+        "peekOfCode": "SessionLocal = sessionmaker(bind=engine, autocommit=False, autoflush=False)\nBase = declarative_base()\ndef get_db():\n    db = SessionLocal()\n    try:\n        yield db\n    finally:\n        db.close()",
+        "detail": "src.configs.databse",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "kind": 5,
+        "importPath": "src.configs.databse",
+        "description": "src.configs.databse",
+        "peekOfCode": "Base = declarative_base()\ndef get_db():\n    db = SessionLocal()\n    try:\n        yield db\n    finally:\n        db.close()",
+        "detail": "src.configs.databse",
+        "documentation": {}
+    },
+    {
+        "label": "db_connect",
+        "kind": 2,
+        "importPath": "src.configs.db_connect",
+        "description": "src.configs.db_connect",
+        "peekOfCode": "def db_connect():\n    try:\n        Base.metadata.create_all(bind=engine)\n        print(\"Successfully connect db!\")\n    except Exception as err:\n        print(\"Fail to connect!\")",
+        "detail": "src.configs.db_connect",
+        "documentation": {}
+    },
+    {
+        "label": "loadEnv",
+        "kind": 2,
+        "importPath": "src.utils.loadEnv",
+        "description": "src.utils.loadEnv",
+        "peekOfCode": "def loadEnv():\n    load_dotenv(find_dotenv())",
+        "detail": "src.utils.loadEnv",
         "documentation": {}
     },
     {
