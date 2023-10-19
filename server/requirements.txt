@@ -1,1 +1,4 @@
 fastapi
+pydantic
+sqlalchemy
+pysql
