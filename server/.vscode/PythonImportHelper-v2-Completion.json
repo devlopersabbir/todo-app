@@ -203,6 +203,14 @@
         "documentation": {}
     },
     {
+        "label": "todoRoutes",
+        "importPath": "src.routes",
+        "description": "src.routes",
+        "isExtraImport": true,
+        "detail": "src.routes",
+        "documentation": {}
+    },
+    {
         "label": "get_db",
         "kind": 2,
         "importPath": "src.configs.databse",
@@ -279,7 +287,7 @@
         "kind": 5,
         "importPath": "src.routes.todoRoutes",
         "description": "src.routes.todoRoutes",
-        "peekOfCode": "router = APIRouter()\n@router.get(\"/\")\nasync def get_todo():\n    return {\n        \"fuck\": \"us\"\n    }",
+        "peekOfCode": "router = APIRouter()\n@router.get(\"/\", tags=[\"GET TODOS\"])\nasync def get_todo():\n    return {\n        \"fuck\": \"us\"\n    }",
         "detail": "src.routes.todoRoutes",
         "documentation": {}
     },
@@ -315,7 +323,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "app = FastAPI()\n# health checking\n@app.get(\"/\")\ndef root():\n    return {\n        \"hello\": \"world\"\n    }",
+        "peekOfCode": "app = FastAPI()\napp.include_router(router=todoRoutes.router, prefix=\"/api/v1/todos\")\n# health checking\n@app.get(\"/\")\ndef root():\n    return {\n        \"hello\": \"world\"\n    }",
         "detail": "main",
         "documentation": {}
     }
