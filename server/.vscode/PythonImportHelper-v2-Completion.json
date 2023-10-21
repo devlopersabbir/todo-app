@@ -113,6 +113,14 @@
         "documentation": {}
     },
     {
+        "label": "Session",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
         "label": "loadEnv",
         "importPath": "src.utils.loadEnv",
         "description": "src.utils.loadEnv",
@@ -371,6 +379,15 @@
         "description": "src.schemas.todoSchema",
         "peekOfCode": "class TodoSchema():\n    name: Optional(str) = None\n    description: Optional(str) = None\n    isDone: Optional(str) = None",
         "detail": "src.schemas.todoSchema",
+        "documentation": {}
+    },
+    {
+        "label": "find_by_name",
+        "kind": 2,
+        "importPath": "src.services.functions",
+        "description": "src.services.functions",
+        "peekOfCode": "def find_by_name(query_db: Session, query_model, name: str):\n    return query_db.query(query_model).filter(query_model.name == name).first()",
+        "detail": "src.services.functions",
         "documentation": {}
     },
     {
