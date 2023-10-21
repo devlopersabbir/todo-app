@@ -1,7 +1,8 @@
 from typing import Optional
+from pydantic import BaseModel
 
 
-class TodoSchema():
-    name: Optional(str) = None
-    description: Optional(str) = None
-    isDone: Optional(str) = None
+class TodoSchema(BaseModel):
+    name: str
+    description: str
+    isDone: str

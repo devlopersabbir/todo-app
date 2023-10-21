@@ -209,6 +209,14 @@
         "documentation": {}
     },
     {
+        "label": "TodoSchema",
+        "importPath": "src.schemas.todoSchema",
+        "description": "src.schemas.todoSchema",
+        "isExtraImport": true,
+        "detail": "src.schemas.todoSchema",
+        "documentation": {}
+    },
+    {
         "label": "uuid",
         "kind": 6,
         "isExtraImport": true,
@@ -248,6 +256,14 @@
         "description": "typing",
         "isExtraImport": true,
         "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
         "documentation": {}
     },
     {
@@ -341,7 +357,16 @@
         "kind": 2,
         "importPath": "src.controllers.todoController",
         "description": "src.controllers.todoController",
-        "peekOfCode": "def index_todo(db: Session):\n    isTodo = db.query(Todo).all()\n    print(isTodo)\n    if isTodo:\n        JSONResponse(\n            status_code=status.HTTP_200_OK,\n            content=isTodo\n        )\n    JSONResponse(\n        status_code=status.HTTP_400_BAD_REQUEST,",
+        "peekOfCode": "def index_todo(db: Session):\n    isTodo = db.query(Todo).all()\n    print(isTodo)\n    if isTodo:\n        return JSONResponse(\n            status_code=status.HTTP_200_OK,\n            content=isTodo\n        )\n    return JSONResponse(\n        status_code=status.HTTP_400_BAD_REQUEST,",
+        "detail": "src.controllers.todoController",
+        "documentation": {}
+    },
+    {
+        "label": "store_todo",
+        "kind": 2,
+        "importPath": "src.controllers.todoController",
+        "description": "src.controllers.todoController",
+        "peekOfCode": "def store_todo(db: Session, todo: TodoSchema):\n    try:\n        db_todo = Todo(\n            name=todo.name,\n            description=todo.description,\n            isDone=todo.isDone\n        )\n        db.add(db_todo)\n        db.commit()\n        db.refresh()",
         "detail": "src.controllers.todoController",
         "documentation": {}
     },
@@ -377,7 +402,7 @@
         "kind": 6,
         "importPath": "src.schemas.todoSchema",
         "description": "src.schemas.todoSchema",
-        "peekOfCode": "class TodoSchema():\n    name: Optional(str) = None\n    description: Optional(str) = None\n    isDone: Optional(str) = None",
+        "peekOfCode": "class TodoSchema(BaseModel):\n    name: str\n    description: str\n    isDone: str",
         "detail": "src.schemas.todoSchema",
         "documentation": {}
     },
