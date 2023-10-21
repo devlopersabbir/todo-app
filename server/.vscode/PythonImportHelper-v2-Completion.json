@@ -97,6 +97,14 @@
         "documentation": {}
     },
     {
+        "label": "Session",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
         "label": "loadEnv",
         "importPath": "src.utils.loadEnv",
         "description": "src.utils.loadEnv",
@@ -129,6 +137,46 @@
         "documentation": {}
     },
     {
+        "label": "status",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "FastAPI",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "JSONResponse",
+        "importPath": "fastapi.responses",
+        "description": "fastapi.responses",
+        "isExtraImport": true,
+        "detail": "fastapi.responses",
+        "documentation": {}
+    },
+    {
+        "label": "Todo",
+        "importPath": "src.models.todo",
+        "description": "src.models.todo",
+        "isExtraImport": true,
+        "detail": "src.models.todo",
+        "documentation": {}
+    },
+    {
         "label": "uuid",
         "kind": 6,
         "isExtraImport": true,
@@ -152,22 +200,6 @@
         "description": "src.models.baseModels",
         "isExtraImport": true,
         "detail": "src.models.baseModels",
-        "documentation": {}
-    },
-    {
-        "label": "APIRouter",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
-        "label": "FastAPI",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
         "documentation": {}
     },
     {
@@ -265,6 +297,15 @@
         "documentation": {}
     },
     {
+        "label": "index_todo",
+        "kind": 2,
+        "importPath": "src.controllers.todoController",
+        "description": "src.controllers.todoController",
+        "peekOfCode": "def index_todo(db: Session):\n    isTodo = db.query(Todo).all()\n    if isTodo:\n        JSONResponse(\n            status_code=status.HTTP_200_OK,\n            content=isTodo\n        )\n    JSONResponse(\n        status_code=status.HTTP_400_BAD_REQUEST,\n        content={",
+        "detail": "src.controllers.todoController",
+        "documentation": {}
+    },
+    {
         "label": "BaseModels",
         "kind": 6,
         "importPath": "src.models.baseModels",
@@ -323,7 +364,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "app = FastAPI()\napp.include_router(router=todoRoutes.router, prefix=\"/api/v1/todos\")\n# health checking\n@app.get(\"/\")\ndef root():\n    return {\n        \"hello\": \"world\"\n    }",
+        "peekOfCode": "app = FastAPI()\ndb_connect()\napp.include_router(router=todoRoutes.router, prefix=\"/api/v1/todos\")\n# health checking\n@app.get(\"/\")\ndef root():\n    return {\n        \"hello\": \"world\"\n    }",
         "detail": "main",
         "documentation": {}
     }
