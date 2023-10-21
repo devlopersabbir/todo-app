@@ -73,14 +73,6 @@
         "documentation": {}
     },
     {
-        "label": "Text",
-        "importPath": "sqlalchemy",
-        "description": "sqlalchemy",
-        "isExtraImport": true,
-        "detail": "sqlalchemy",
-        "documentation": {}
-    },
-    {
         "label": "sessionmaker",
         "importPath": "sqlalchemy.orm",
         "description": "sqlalchemy.orm",
@@ -384,7 +376,7 @@
         "kind": 6,
         "importPath": "src.models.todo",
         "description": "src.models.todo",
-        "peekOfCode": "class Todo(BaseModels):\n    __tablename__ = \"Todos\"\n    name = Column(String(256), unique=True, nullable=False)\n    description = Column(String(Text))\n    isDone = Column(Boolean(), default=False)",
+        "peekOfCode": "class Todo(BaseModels):\n    __tablename__ = \"Todos\"\n    name = Column(String(256), unique=True, nullable=False)\n    description = Column(String(256), nullable=False)\n    isDone = Column(Boolean(), nullable=True, default=False)",
         "detail": "src.models.todo",
         "documentation": {}
     },
