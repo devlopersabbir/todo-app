@@ -7,7 +7,6 @@ from src.schemas.todoSchema import TodoSchema
 
 def index_todo(db: Session):
     isTodo = db.query(Todo).all()
-    print(isTodo)
     if isTodo:
         return JSONResponse(
             status_code=status.HTTP_200_OK,
