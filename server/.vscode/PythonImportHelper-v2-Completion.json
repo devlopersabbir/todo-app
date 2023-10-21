@@ -105,6 +105,14 @@
         "documentation": {}
     },
     {
+        "label": "Session",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
         "label": "loadEnv",
         "importPath": "src.utils.loadEnv",
         "description": "src.utils.loadEnv",
@@ -137,6 +145,14 @@
         "documentation": {}
     },
     {
+        "label": "get_db",
+        "importPath": "src.configs.databse",
+        "description": "src.configs.databse",
+        "isExtraImport": true,
+        "detail": "src.configs.databse",
+        "documentation": {}
+    },
+    {
         "label": "status",
         "importPath": "fastapi",
         "description": "fastapi",
@@ -146,6 +162,14 @@
     },
     {
         "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
         "importPath": "fastapi",
         "description": "fastapi",
         "isExtraImport": true,
@@ -200,6 +224,14 @@
         "description": "src.models.baseModels",
         "isExtraImport": true,
         "detail": "src.models.baseModels",
+        "documentation": {}
+    },
+    {
+        "label": "index_todo",
+        "importPath": "src.controllers.todoController",
+        "description": "src.controllers.todoController",
+        "isExtraImport": true,
+        "detail": "src.controllers.todoController",
         "documentation": {}
     },
     {
@@ -292,7 +324,7 @@
         "kind": 2,
         "importPath": "src.configs.db_connect",
         "description": "src.configs.db_connect",
-        "peekOfCode": "def db_connect():\n    try:\n        Base.metadata.create_all(bind=engine)\n        print(\"Successfully connect db!\")\n    except Exception as err:\n        print(\"Fail to connect!\")",
+        "peekOfCode": "def db_connect():\n    try:\n        Base.metadata.create_all(bind=engine)\n        print(\"Successfully connect db!\")\n    except Exception as err:\n        print(\"Fail to connect!\")\n        print(err)",
         "detail": "src.configs.db_connect",
         "documentation": {}
     },
@@ -301,7 +333,7 @@
         "kind": 2,
         "importPath": "src.controllers.todoController",
         "description": "src.controllers.todoController",
-        "peekOfCode": "def index_todo(db: Session):\n    isTodo = db.query(Todo).all()\n    if isTodo:\n        JSONResponse(\n            status_code=status.HTTP_200_OK,\n            content=isTodo\n        )\n    JSONResponse(\n        status_code=status.HTTP_400_BAD_REQUEST,\n        content={",
+        "peekOfCode": "def index_todo(db: Session):\n    isTodo = db.query(Todo).all()\n    print(isTodo)\n    if isTodo:\n        JSONResponse(\n            status_code=status.HTTP_200_OK,\n            content=isTodo\n        )\n    JSONResponse(\n        status_code=status.HTTP_400_BAD_REQUEST,",
         "detail": "src.controllers.todoController",
         "documentation": {}
     },
@@ -328,7 +360,7 @@
         "kind": 5,
         "importPath": "src.routes.todoRoutes",
         "description": "src.routes.todoRoutes",
-        "peekOfCode": "router = APIRouter()\n@router.get(\"/\", tags=[\"GET TODOS\"])\nasync def get_todo():\n    return {\n        \"fuck\": \"us\"\n    }",
+        "peekOfCode": "router = APIRouter()\n@router.get(\"/\", tags=[\"GET TODOS\"])\nasync def get_todo(db: Session = Depends(get_db)):\n    return index_todo(db)",
         "detail": "src.routes.todoRoutes",
         "documentation": {}
     },

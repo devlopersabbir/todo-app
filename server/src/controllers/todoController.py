@@ -6,6 +6,7 @@ from src.models.todo import Todo
 
 def index_todo(db: Session):
     isTodo = db.query(Todo).all()
+    print(isTodo)
     if isTodo:
         JSONResponse(
             status_code=status.HTTP_200_OK,

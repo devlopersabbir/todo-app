@@ -7,3 +7,4 @@ def db_connect():
         print("Successfully connect db!")
     except Exception as err:
         print("Fail to connect!")
+        print(err)
